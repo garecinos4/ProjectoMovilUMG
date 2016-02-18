@@ -1,18 +1,37 @@
-<ion-view view-title="UMG">
+<ion-view view-title="BUSCAR">
     <ion-content class="padding">
+       
         <div class="list card">
             <div class="item item-avatar">
-                <img src="../img/profile04.png">
-                <h2>Buscar</h2>
-                <p>Encuentra edificios,
-                    <br> notas de clases y
-                    <br>oficinas administrativas</p>
+                <img src="../img/filter.png">
+                <div class="item active">
+                    <h2>FILTRAR</h2>
+                    <p><i class="icon ion-information-circled"></i> Seleccione lo que desea buscar</p>
+                    <ion-list class="balanced">
+                        <ion-radio ng-click="vm.isCheck('buildings')">Edificios</ion-radio>
+                        <ion-radio ng-click="vm.isCheck('rooms')">Salones de Clases y Oficinas Administrativas</ion-radio>
+                        <ion-radio ng-click="vm.isCheck('0')">Otros</ion-radio>
+                    </ion-list>
+                </div>
             </div>
-            <div class="item item-image">
+            <div class="item item-avatar">
                 <img src="../img/search.png">
+                <div class="item active">
+                    <h2>Buscar</h2>
+                    <p><i class="icon ion-information-circled"></i> Escriba lo que desea buscar</p>
+                    <div class="row">
+                        <div class="col col-75">
+                            <label class="item item-input">
+                                <input type="text" placeholder=">_" ng-model="vm.text">
+                            </label>
+                        </div>
+                        <div class="col">
+                            <button class="button button-outline button-calm icon ion-search" ng-click="vm.searchInfo()"></button>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <button class="button button-full button-dark" ng-click="vm.goToSearch()">Buscar
-            </button>
         </div>
     </ion-content>
 </ion-view>

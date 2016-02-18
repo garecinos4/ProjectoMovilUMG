@@ -3,12 +3,12 @@
     angular.module('app.controller', ['ionic', 'ngCordova'])
         .controller('Controller', Controller);
 
-    Controller.$inject = ['$state', '$cordovaBarcodeScanner', '$ionicPopup'];
+    Controller.$inject = ['$scope', '$state', '$cordovaBarcodeScanner', '$ionicPopup'];
 
-    function Controller($state, $cordovaBarcodeScanner, $ionicPopup) {
-        var self = this;
+    function Controller($scope, $state, $cordovaBarcodeScanner, $ionicPopup) {
+        //var self = this;
 
-        self.scanQR = function () {
+        $scope.scanQR = function () {
             $cordovaBarcodeScanner
                 .scan()
                 .then(function (image) {

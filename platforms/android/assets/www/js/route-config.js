@@ -42,8 +42,7 @@
                 views: {
                     'tab-scanner': {
                         templateUrl: 'views/tab-scanner.html',
-                        controller: 'Controller',
-                        controllerAs: 'vm'
+                        controller: 'Controller'
                     }
                 }
             })

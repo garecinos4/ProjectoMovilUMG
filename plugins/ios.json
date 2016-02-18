@@ -70,10 +70,10 @@
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.ionicframework.starter"
         },
-        "phonegap-plugin-barcodescanner": {
+        "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "com.ionicframework.movilapp174487"
         },
-        "cordova-plugin-geolocation": {
+        "phonegap-plugin-barcodescanner": {
             "PACKAGE_NAME": "com.ionicframework.movilapp174487"
         }
     },

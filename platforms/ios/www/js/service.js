@@ -3,7 +3,7 @@
         .factory('Service', Service);
 
     Service.$inject = ['$http'];
-    var server = 'http://localhost:8080/api/'
+    var server = 'http://104.236.120.91/api/'
     function Service($http) {
         return {
             findBasicInfo: findBasicInfo,

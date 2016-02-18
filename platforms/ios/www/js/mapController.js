@@ -1,7 +1,5 @@
 /**
- * Maneja las funciones basicas
- * del mantenimiento de edificios
- * (Crear)
+ * Maneja las funciones del mapa
  * @author Gabriela Alejandra Recinos Arevalo
  */
 
@@ -10,9 +8,9 @@
     angular.module('app.mapController', ['ionic', 'ngCordova'])
         .controller('MapController', MapController);
 
-    MapController.$inject = ['$scope', 'Service'];
+    MapController.$inject = ['Service'];
 
-    function MapController($scope, Service) {
+    function MapController(Service) {
         var self = this;
         self.building = {};
         var marker;

@@ -3,9 +3,10 @@
     angular.module('app', [
         'ionic',
         'ngCordova',
-        'app.routeConfig',
         'app.controller',
+        'app.mapController',
+        'app.searchController',
         'app.service',
-        'app.mapController'
+        'app.routeConfig'
     ]);
 })();

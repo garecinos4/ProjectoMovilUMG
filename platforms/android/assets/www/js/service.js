@@ -4,6 +4,7 @@
 
     Service.$inject = ['$http'];
     var server = 'http://104.236.120.91/api/'
+    //var server = 'http://localhost:8080/api/'
     function Service($http) {
         return {
             findBasicInfo: findBasicInfo,
@@ -23,7 +24,7 @@
         }
 
         function getBuildings() {
-            return $http.get( server + 'buildings/')
+            return $http.get(server + 'buildings/')
                 .then(getResponseOK)
                 .catch(getResponseFailed);
 

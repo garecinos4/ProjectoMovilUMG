@@ -5,7 +5,7 @@
 
 (function () {
     'use strict';
-    angular.module('app.mapController', ['ionic', 'ngCordova'])
+    angular.module('app.mapController', [])
         .controller('MapController', MapController);
 
     MapController.$inject = ['Service'];
@@ -41,10 +41,10 @@
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function (position) {
                     var pos = new google.maps.LatLng(
-                    /*position.coords.latitude,
-                    position.coords.longitude*/
-                        14.659275,
-                        -90.513378
+                    position.coords.latitude,
+                    position.coords.longitude
+                      /*  14.659275,
+                        -90.513378*/
                         );
                     //listener = google.maps.event.addListener(map, 'click', function (e) {
                     mark(pos, map, "Usted esta aquí");

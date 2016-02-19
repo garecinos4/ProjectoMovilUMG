@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app.routeConfig', ['ionic', 'ngCordova'])
+        .module('app.routeConfig', [])
         .config(config);
 
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
@@ -27,6 +27,7 @@
                     }
                 }
             })
+            
             .state('tab.map', {
                 url: '/map',
                 views: {
@@ -47,11 +48,53 @@
                     }
                 }
             })
+            .state('tab.result', {
+                url: '/result/:text',
+                views: {
+                    'tab-scanner': {
+                        templateUrl: 'views/search-response.html',
+                        controller: 'SearchController',
+                        controllerAs: 'vm'
+                    }
+                }
+            })
+
+
             .state('tab.search', {
                 url: '/search',
                 views: {
                     'tab-search': {
                         templateUrl: 'views/tab-search.html',
+                        controller: 'SearchController',
+                        controllerAs: 'vm'
+                    }
+                }
+            })
+            .state('tab.building', {
+                url: '/building',
+                views: {
+                    'tab-search': {
+                        templateUrl: 'views/tab-building.html',
+                        controller: 'SearchController',
+                        controllerAs: 'vm'
+                    }
+                }
+            })
+             .state('tab.step', {
+                url: '/step',
+                views: {
+                    'tab-search': {
+                        templateUrl: 'views/tab-step.html',
+                        controller: 'SearchController',
+                        controllerAs: 'vm'
+                    }
+                }
+            })
+             .state('tab.course', {
+                url: '/course',
+                views: {
+                    'tab-search': {
+                        templateUrl: 'views/tab-course.html',
                         controller: 'SearchController',
                         controllerAs: 'vm'
                     }
@@ -67,16 +110,7 @@
                     }
                 }
             })
-            .state('tab.result', {
-                url: '/result/:text',
-                views: {
-                    'tab-scanner': {
-                        templateUrl: 'views/search-response.html',
-                        controller: 'SearchController',
-                        controllerAs: 'vm'
-                    }
-                }
-            })
+
 
         $urlRouterProvider.otherwise('/tab/home');
 

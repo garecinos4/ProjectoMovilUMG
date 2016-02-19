@@ -9,6 +9,10 @@
                 "parents": {
                     "/*": [
                         {
+                            "xml": "<feature name=\"CsZBar\"><param name=\"ios-package\" value=\"CsZBar\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>",
                             "count": 1
                         },
@@ -35,24 +39,6 @@
                         {
                             "xml": "<feature name=\"Keyboard\"><param name=\"ios-package\" onload=\"true\" value=\"IonicKeyboard\" /></feature>",
                             "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Geolocation\"><param name=\"ios-package\" value=\"CDVLocation\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"BarcodeScanner\"><param name=\"ios-package\" value=\"CDVBarcodeScanner\" /></feature>",
-                            "count": 1
-                        }
-                    ]
-                }
-            },
-            "*-Info.plist": {
-                "parents": {
-                    "NSLocationWhenInUseUsageDescription": [
-                        {
-                            "xml": "<string />",
-                            "count": 1
                         }
                     ]
                 }
@@ -60,6 +46,9 @@
         }
     },
     "installed_plugins": {
+        "org.madmobile.cordovaplugins.zbarscanner": {
+            "PACKAGE_NAME": "com.ionicframework.starter"
+        },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.ionicframework.starter"
         },
@@ -77,16 +66,18 @@
         },
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.ionicframework.starter"
-        },
-        "cordova-plugin-geolocation": {
-            "PACKAGE_NAME": "com.ionicframework.movilapp174487"
-        },
-        "phonegap-plugin-barcodescanner": {
-            "PACKAGE_NAME": "com.ionicframework.movilapp174487"
         }
     },
     "dependent_plugins": {},
     "modules": [
+        {
+            "file": "plugins/org.madmobile.cordovaplugins.zbarscanner/www/zbar.js",
+            "id": "org.madmobile.cordovaplugins.zbarscanner.zBar",
+            "pluginId": "org.madmobile.cordovaplugins.zbarscanner",
+            "clobbers": [
+                "cloudSky.zBar"
+            ]
+        },
         {
             "file": "plugins/cordova-plugin-console/www/console-via-logger.js",
             "id": "cordova-plugin-console.console",
@@ -135,56 +126,15 @@
                 "cordova.plugins.Keyboard"
             ],
             "runs": true
-        },
-        {
-            "file": "plugins/cordova-plugin-geolocation/www/Coordinates.js",
-            "id": "cordova-plugin-geolocation.Coordinates",
-            "pluginId": "cordova-plugin-geolocation",
-            "clobbers": [
-                "Coordinates"
-            ]
-        },
-        {
-            "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
-            "id": "cordova-plugin-geolocation.PositionError",
-            "pluginId": "cordova-plugin-geolocation",
-            "clobbers": [
-                "PositionError"
-            ]
-        },
-        {
-            "file": "plugins/cordova-plugin-geolocation/www/Position.js",
-            "id": "cordova-plugin-geolocation.Position",
-            "pluginId": "cordova-plugin-geolocation",
-            "clobbers": [
-                "Position"
-            ]
-        },
-        {
-            "file": "plugins/cordova-plugin-geolocation/www/geolocation.js",
-            "id": "cordova-plugin-geolocation.geolocation",
-            "pluginId": "cordova-plugin-geolocation",
-            "clobbers": [
-                "navigator.geolocation"
-            ]
-        },
-        {
-            "file": "plugins/phonegap-plugin-barcodescanner/www/barcodescanner.js",
-            "id": "phonegap-plugin-barcodescanner.BarcodeScanner",
-            "pluginId": "phonegap-plugin-barcodescanner",
-            "clobbers": [
-                "cordova.plugins.barcodeScanner"
-            ]
         }
     ],
     "plugin_metadata": {
+        "org.madmobile.cordovaplugins.zbarscanner": "1.3.1",
         "cordova-plugin-console": "1.0.2",
         "cordova-plugin-device": "1.1.1",
         "cordova-plugin-splashscreen": "3.1.0",
-        "cordova-plugin-statusbar": "2.1.0",
+        "cordova-plugin-statusbar": "2.1.1",
         "cordova-plugin-whitelist": "1.2.1",
-        "ionic-plugin-keyboard": "1.0.8",
-        "cordova-plugin-geolocation": "2.1.0",
-        "phonegap-plugin-barcodescanner": "4.1.0"
+        "ionic-plugin-keyboard": "1.0.8"
     }
 }

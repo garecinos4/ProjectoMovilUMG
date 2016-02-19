@@ -5,7 +5,7 @@
 
 (function () {
     'use strict';
-    angular.module('app.mapController', ['ionic', 'ngCordova'])
+    angular.module('app.mapController', [])
         .controller('MapController', MapController);
 
     MapController.$inject = ['Service'];

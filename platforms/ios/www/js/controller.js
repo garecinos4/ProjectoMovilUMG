@@ -1,31 +1,29 @@
 (function () {
     'use strict';
-    angular.module('app.controller', ['ionic', 'ngCordova'])
+    angular.module('app.controller', [])
         .controller('Controller', Controller);
 
-    Controller.$inject = ['$state', '$cordovaBarcodeScanner', '$ionicPopup'];
+    Controller.$inject = ['$state', '$ionicPopup'];
 
-    function Controller($state, $cordovaBarcodeScanner, $ionicPopup) {
+    function Controller($state, $ionicPopup) {
         var self = this;
 
         self.scanQR = function () {
-            $cordovaBarcodeScanner
-                .scan()
-                .then(function (image) {
-                    /* //Success! Barcode data is here*/
-                    alert("ESCANEANDO...." + JSON.stringify(image));
-                    var url = image.text;
+            cloudSky.zBar.scan({}, function (response) {
+                if (response) {
+                    var url = response;
+
                     try {
                         var id = url.split('#')[1];
                         var text = id.replace('%20', ' ');
-                        $state.go('tab.result', { text:  text});
+                        $state.go('tab.result', { text: text });
                     } catch (e) {
                         alert("Codigo no valido");
                     }
-                }, function (error) {
-                    // An error occurred
-                    console.log("Ha ocurrido un error : " + error);
-                });
+                }
+            }, function (error) {
+                console.log("Ha ocurrido un error : " + error);
+            });
         }
     }
 })();

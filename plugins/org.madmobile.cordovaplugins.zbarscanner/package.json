@@ -1,0 +1,40 @@
+{
+  "name": "org.madmobile.cordovaplugins.zbarscanner",
+  "version": "1.0.1",
+  "description": "This plugin integrates with the [ZBar](http://zbar.sourceforge.net/) library,\r exposing a JavaScript interface for scanning barcodes (QR, 2D, etc).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/madmobile/mm-zbar.git"
+  },
+  "author": "mm.igorg <igorg@madmobile.com> (http://www.madmobile.com/)",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/madmobile/mm-zbar#readme",
+  "cordova": {
+    "id": "org.madmobile.cordovaplugins.zbarscanner",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "cszbar",
+    "zbar",
+    "barcode",
+    "qr",
+    "qr code",
+    "scanner",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ]
+}

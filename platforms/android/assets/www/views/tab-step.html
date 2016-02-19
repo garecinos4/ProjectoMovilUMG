@@ -1,0 +1,25 @@
+<ion-view view-title="Procedimientos">
+    <ion-content class="padding">
+       
+        <div class="list card">
+            <div class="item item-avatar">
+                <img src="../img/search.png">
+                <div class="item active">
+                    <h2>Buscar</h2>
+                    <p><i class="icon ion-information-circled"></i> Escriba lo que desea buscar</p>
+                    <div class="row">
+                        <div class="col col-75">
+                            <label class="item item-input">
+                                <input type="text" placeholder=">_" ng-model="vm.text">
+                            </label>
+                        </div>
+                        <div class="col">
+                            <button class="button button-outline button-calm icon ion-search" ng-click="vm.isCheck('procedures'); vm.searchInfo()"></button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

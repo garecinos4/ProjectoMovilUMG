@@ -8,28 +8,25 @@
     },
     "installed_plugins": {
         "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.ionicframework.movilapp174487"
+            "PACKAGE_NAME": "com.ionicframework.projectomovilumg871469"
         },
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.ionicframework.movilapp174487"
+            "PACKAGE_NAME": "com.ionicframework.projectomovilumg871469"
         },
         "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.ionicframework.movilapp174487"
+            "PACKAGE_NAME": "com.ionicframework.projectomovilumg871469"
         },
         "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.ionicframework.movilapp174487"
+            "PACKAGE_NAME": "com.ionicframework.projectomovilumg871469"
         },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.ionicframework.movilapp174487"
+            "PACKAGE_NAME": "com.ionicframework.projectomovilumg871469"
         },
         "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.ionicframework.movilapp174487"
+            "PACKAGE_NAME": "com.ionicframework.projectomovilumg871469"
         },
-        "cordova-plugin-geolocation": {
-            "PACKAGE_NAME": "com.ionicframework.movilapp174487"
-        },
-        "phonegap-plugin-barcodescanner": {
-            "PACKAGE_NAME": "com.ionicframework.movilapp174487"
+        "org.madmobile.cordovaplugins.zbarscanner": {
+            "PACKAGE_NAME": "com.ionicframework.projectomovilumg871469"
         }
     },
     "dependent_plugins": {}

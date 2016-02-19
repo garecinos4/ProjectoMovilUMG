@@ -8,7 +8,7 @@
     function Service($http) {
         return {
             findBasicInfo: findBasicInfo,
-            getBuildings: getBuildings
+            getInfo: getInfo
         };
 
         function findBasicInfo(service, text) {
@@ -23,8 +23,8 @@
             }
         }
 
-        function getBuildings() {
-            return $http.get(server + 'buildings/')
+        function getInfo(service) {
+            return $http.get(server + service + '/')
                 .then(getResponseOK)
                 .catch(getResponseFailed);
 

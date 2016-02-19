@@ -39,9 +39,34 @@
 
         function search() {
             console.log(self.text + " - " + self.checkboxOption);
-
             if (self.text) {
                 return Service.findBasicInfo(self.checkboxOption, self.text)
+                    .then(function (result) {
+                        if (result && result.code === 0 && result.data.length > 0) {
+                            InfoFactory.set(result.data);
+                        } else if (result.data.length < 1) {
+                            var alertPopup = $ionicPopup.alert({
+                                title: 'No se encontro resultado',
+                                template: 'Intenta con otro texto.',
+                                okText: 'Aceptar',
+                            });
+                            alertPopup.then(function (res) {
+                                //console.log('Do something');
+                            });
+                        } else {
+                            var alertPopup = $ionicPopup.alert({
+                                title: 'Error',
+                                template: 'Error: ' + result.message,
+                                okText: 'Aceptar',
+                                okType: 'button-assertive',
+                            });
+                            alertPopup.then(function (res) {
+                                //console.log('Do something');
+                            });
+                        }
+                    });
+            } else {
+                return Service.getInfo(self.checkboxOption)
                     .then(function (result) {
                         if (result && result.code === 0 && result.data.length > 0) {
                             InfoFactory.set(result.data);

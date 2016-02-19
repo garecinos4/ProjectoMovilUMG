@@ -41,11 +41,12 @@
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function (position) {
                     var pos = new google.maps.LatLng(
-                    position.coords.latitude,
-                    position.coords.longitude
-                      /*  14.659275,
-                        -90.513378*/
+                    //position.coords.latitude,
+                    //position.coords.longitude
+                        14.659275,
+                        -90.513378
                         );
+                    alert("LOCATION " + pos);
                     //listener = google.maps.event.addListener(map, 'click', function (e) {
                     mark(pos, map, "Usted esta aquí");
                     getBuildings();
@@ -109,12 +110,12 @@
         }
 
         function getBuildings() {
-            return Service.getBuildings()
+            return Service.getInfo('buildings')
                 .then(function (result) {
                     if (result && result.code === 0) {
                         //self.buildings = result.data;
                         for (var i = 0; i < result.data.length; i++) {
-                            console.log(result.data[i]);
+                            //console.log(result.data[i]);
                             addMarker(result.data[i]);
                         }
                     } else {

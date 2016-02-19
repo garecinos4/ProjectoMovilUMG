@@ -12,9 +12,15 @@
 
     function MapController(Service) {
         var self = this;
+
         self.building = {};
-        var marker;
+
+        var markers = [];
+
         var mapCanvas = document.getElementById('map-canvas');
+
+        var center = new google.maps.LatLng(14.659275, -90.513378);
+
         var mapOptions = {
             title: 'default',
             zoom: 18,
@@ -26,6 +32,7 @@
         };
 
         var map = new google.maps.Map(mapCanvas, mapOptions);
+
         var listener;
         /**
          * Invoca a la función que 
@@ -41,15 +48,24 @@
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function (position) {
                     var pos = new google.maps.LatLng(
-                    position.coords.latitude,
-                    position.coords.longitude
-                      /*  14.659275,
-                        -90.513378*/
+                        position.coords.latitude,
+                        position.coords.longitude
+                    //   14.659275,
+                    //  -90.513378
                         );
-                    //listener = google.maps.event.addListener(map, 'click', function (e) {
-                    mark(pos, map, "Usted esta aquí");
+
+                    var distance = google.maps.geometry.spherical.computeDistanceBetween(pos, center);
+
+                    if (distance > 3000) {
+                        alert("Te encuentras fuera del rango");
+                    } else {
+                        //listener = google.maps.event.addListener(map, 'click', function (e) {
+                        addMark(pos, "Usted esta aquí");
+                        
+                        //});  
+                    }
                     getBuildings();
-                    //});
+
                 }, function () {
                     handleNoGeolocation(true);
                 });
@@ -65,19 +81,17 @@
          * @param {google.maps.LatLng} position
          * @param {google.maps.Map} map
          */
-        function mark(position, map, content) {
-            /*if (marker) {
-                marker.setMap(null);
-            }*/
+        function addMark(position, content) {
             //Instancia una marca
-            marker = new google.maps.Marker({
+            var marker = new google.maps.Marker({
                 position: position,
                 map: map,
                 animation: google.maps.Animation.DROP
             });
 
-            //Instancia una ventana de información
+            markers.push(marker);
             
+            //Instancia una ventana de información
             var infowindow = new google.maps.InfoWindow();
             infowindow.setContent('<b>' + content + '</b>');
             infowindow.open(map, marker);
@@ -95,10 +109,15 @@
                 );
 
             var marker = new google.maps.Marker({
-                map: map,
-                position: BuildPosition
-
+                position: BuildPosition,
+                map: map
             });
+            markers.push(marker);
+
+
+            var infoWindow = new google.maps.InfoWindow();
+            infoWindow.setContent('<b>' + place.name + '</b>');
+            infoWindow.open(map, marker);
 
             google.maps.event.addListener(marker, 'click', function () {
 
@@ -109,12 +128,12 @@
         }
 
         function getBuildings() {
-            return Service.getBuildings()
+            return Service.getInfo('buildings')
                 .then(function (result) {
                     if (result && result.code === 0) {
                         //self.buildings = result.data;
                         for (var i = 0; i < result.data.length; i++) {
-                            console.log(result.data[i]);
+                            //console.log(result.data[i]);
                             addMarker(result.data[i]);
                         }
                     } else {
@@ -123,7 +142,18 @@
                 });
         }
 
-        self.doRefresh = function(){}
+        function setMapOnAll(map) {
+            for (var i = 0; i < markers.length; i++) {
+                markers[i].setMap(map);
+            }
+        }
+
+
+        self.doRefresh = function () {
+            setMapOnAll(null);
+            markers = [];
+            initMap();
+        }
 
         function handleNoGeolocation(errorFlag) {
             if (errorFlag) {

@@ -90,8 +90,8 @@
             });
 
             markers.push(marker);
-            //Instancia una ventana de información
             
+            //Instancia una ventana de información
             var infowindow = new google.maps.InfoWindow();
             infowindow.setContent('<b>' + content + '</b>');
             infowindow.open(map, marker);

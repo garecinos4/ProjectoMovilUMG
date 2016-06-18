@@ -8,18 +8,19 @@
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-</head>
 
-<body ng-app="app">
+    <style type="text/css">
+        html,
+        body,
+        #map-canvas {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 
-    <ion-nav-bar class="bar-stable">
-        <ion-nav-back-button>
-        </ion-nav-back-button>
-    </ion-nav-bar>
-    <ion-nav-view></ion-nav-view>
 
-
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.22&signed_in=false&language=es"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.22&signed_in=false&language=es&libraries=geometry"></script>
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
@@ -34,6 +35,19 @@
     <script src="js/mapController.js"></script>
     <script src="js/searchController.js"></script>
     <script src="js/infoFactory.js"></script>
+
+
+</head>
+
+<body ng-app="app" class="platform-ios platform-cordova platform-webview">
+
+    <ion-nav-bar class="bar-stable">
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-nav-view></ion-nav-view>
+
+
 </body>
 
 </html>
